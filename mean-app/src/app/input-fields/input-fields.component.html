@@ -1,9 +1,8 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()" #messageForm="ngForm" >
+    <form (ngSubmit)="onSubmit();" #messageForm="ngForm" >
       <div class="form-group">
-        <label for="comment">Comment:</label>
-        <!--Massa fel med denna ngmodel...-->
-        <textarea [(ngModel)]="model.message" name="message" class="form-control" rows="5" id="comment" required></textarea>
+        <label for="comment"><p>Name:</p> <input name="inputName" type="text" [(ngModel)]="inputName" class="form-control" required /></label><br>     
+        <p>Message:</p><textarea name="message" [(ngModel)]="inputMessage" class="form-control" id="comment" (keydown.enter)="onSubmit();false" required></textarea>
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
