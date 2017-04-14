@@ -1,0 +1,10 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #messageForm="ngForm" >
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <!--Massa fel med denna ngmodel...-->
+        <textarea [(ngModel)]="model.message" name="message" class="form-control" rows="5" id="comment" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
