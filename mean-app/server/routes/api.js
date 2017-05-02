@@ -5,6 +5,8 @@ mongoose.Promise = Promise;
 require('../DAL/helper.js');
 const entry = require('../DAL/entryHandler.js');
 
+
+
 /* GET api listing. */
 router.get('/', (req, res) => {
   res.send('HELLO WORLD WELCOME TO THE API');
@@ -22,7 +24,7 @@ router.get('/posts', (req, res) => {
 });
 
 router.post('/newpost', (req, res) => {
-  entry.add(req.body.name, req.body.message);
+  entry.add(req.body.name, req.body.message, req.body.imgurlinks);
   console.log(req.body.name + ": "+ req.body.message);
 });
 

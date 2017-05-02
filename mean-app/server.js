@@ -5,10 +5,14 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+
+
 //API Routes
 
 const app = express();
 const api = require('./server/routes/api');
+
+
 
 //parsers for POST
 
@@ -33,5 +37,18 @@ app.set('port', port);
 //http server create
 const server = http.createServer(app);
 
+//sockets
+let io = require('socket.io').listen(server.listen(port, () => console.log(`API running on localhost:${port}`)));
+io.on('connection', (socket) => {
+  console.log('User connected!');
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected!');
+  })
+
+  socket.on('add-post', (messageObj) => {
+    io.emit('message', messageObj);
+  })
+})
+
 //listen on port provided above
-server.listen(port, () => console.log(`API running on localhost:${port}`));

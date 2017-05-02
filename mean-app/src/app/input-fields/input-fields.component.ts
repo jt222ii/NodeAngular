@@ -11,10 +11,12 @@ import { PostsService } from '../posts.service';
 })
 export class InputFieldsComponent implements OnInit {
 
+
   constructor(private postsService: PostsService) {
   }
 
   ngOnInit() {
+
   }
   submitted = false;
   inputName: string;
@@ -25,8 +27,11 @@ export class InputFieldsComponent implements OnInit {
       return;
     }
     this.submitted = true; 
-    let jObj = JSON.stringify({ name: this.inputName, message: this.inputMessage })
-    this.postsService.sendPost(jObj);
+
+    let imgurlinks = this.inputMessage.match(/(https?:\/\/i.imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3}))/g);
+
+    let obj = { name: this.inputName, message: this.inputMessage, imgurlinks: imgurlinks }
+    this.postsService.sendPost(obj);
     this.inputMessage = "";
   }
 }

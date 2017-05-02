@@ -1,8 +1,13 @@
 <div class="container">
-  <div class="row" *ngFor="let post of posts">
+  <div class="row" *ngFor="let post of posts.slice().reverse()">
     <div class="card card-block">
       <h4 class="card-title">{{ post.name }}</h4>
       <p class="card-text">{{post.message}}</p>
+      <div class="col-md-2" *ngFor="let imgurlink of post.imgurlinks">
+        <a href="{{imgurlink}}" target="_blank">
+          <img src="{{imgurlink}}" alt="" height="150" class="img-thumbnail">
+        </a>
+      </div>
     </div>
   </div>
 </div>
