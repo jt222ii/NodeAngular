@@ -3,9 +3,9 @@
     <div class="card card-block">
       <h4 class="card-title">{{ post.name }}</h4>
       <p class="card-text">{{post.message}}</p>
-      <div class="col-md-2" *ngFor="let imgurlink of post.imgurlinks">
-        <a href="{{imgurlink}}" target="_blank">
-          <img src="{{imgurlink}}" alt="" height="150" class="img-thumbnail">
+      <div class="col-md-2" *ngFor="let imglink of post.imglinks">
+        <a href="{{imglink}}" target="_blank">
+          <img src="{{imglink}}" alt="" height="150" class="img-thumbnail">
         </a>
       </div>
     </div>

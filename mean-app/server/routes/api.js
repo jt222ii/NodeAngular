@@ -24,7 +24,7 @@ router.get('/posts', (req, res) => {
 });
 
 router.post('/newpost', (req, res) => {
-  entry.add(req.body.name, req.body.message, req.body.imgurlinks);
+  entry.add(req.body.name, req.body.message, req.body.imglinks);
   console.log(req.body.name + ": "+ req.body.message);
 });
 

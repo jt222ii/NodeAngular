@@ -28,9 +28,9 @@ export class InputFieldsComponent implements OnInit {
     }
     this.submitted = true; 
 
-    let imgurlinks = this.inputMessage.match(/(https?:\/\/i.imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3}))/g);
-
-    let obj = { name: this.inputName, message: this.inputMessage, imgurlinks: imgurlinks }
+    //let imglinks = this.inputMessage.match(/(https?:\/\/i.imgur.com\/(\w*\d\w*)+(\.[a-zA-Z]{3}))/g); //imgur only
+    let imglinks = this.inputMessage.match(/(https?:\/\/(\S)*\/(\w*)+(\.jpg|gif|png|jpeg))/g);
+    let obj = { name: this.inputName, message: this.inputMessage, imglinks: imglinks }
     this.postsService.sendPost(obj);
     this.inputMessage = "";
   }

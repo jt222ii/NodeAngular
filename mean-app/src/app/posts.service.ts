@@ -45,7 +45,7 @@ export class PostsService {
     this.socket.emit('add-post', messageObj);
 
     //save in mongodb
-    let newPost = JSON.stringify({ name: messageObj.name, message: messageObj.message, imgurlinks: messageObj.imgurlinks})
+    let newPost = JSON.stringify({ name: messageObj.name, message: messageObj.message, imglinks: messageObj.imglinks})
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/newpost', newPost, {headers: headers})
